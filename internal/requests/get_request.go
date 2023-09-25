@@ -6,20 +6,8 @@ import (
 	"net/http"
 )
 
-func GetWithQuery(endpoint string, query string, apiKey string) ([]byte, error) {
-	req, err := http.NewRequest(http.MethodGet, API_URL+endpoint, nil)
-	req.URL.RawQuery = query
-
-	if err != nil {
-		return nil, err
-	}
-
-	return executeRequest(req, apiKey)
-
-}
-
-func Get(endpoint string, apiKey string) ([]byte, error) {
-	req, err := http.NewRequest(http.MethodGet, API_URL+endpoint, nil)
+func Get(query string, apiKey string) ([]byte, error) {
+	req, err := http.NewRequest(http.MethodGet, API_URL+query, nil)
 
 	if err != nil {
 		return nil, err
