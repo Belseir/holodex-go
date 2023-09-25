@@ -4,12 +4,10 @@
 
 Holodex-Go is a Go package that provides a client to use [Holodex](https://holodex.net/) V2 API.
 
-**DISCLAIMER:** This package was made for hobby to learn how to use golang and implement some design patterns. It's probably filled with bugs or lacking features. I may or may not continue updating it.
+**DISCLAIMER:** This package was made by hobby to learn how to use golang and implement some design patterns. It's probably filled with bugs or lacking features. I might or might not continue updating it.
 
 If you want to contribute to the project or give some recommendations you're totally invited to do so through issues and pull requests.
 
-<br />
-<br />
 <br />
 
 ## Getting Started
@@ -34,7 +32,7 @@ import (
 
 Get an API key by creating an account on [Holodex](https://holodex.net/)
 
-Create a new Client using your API key
+Create a new Client using your API key.\
 **Note:** The HolodexClient uses a singleton pattern, the apiKey and cache will be used through all your clients inside the same project.
 
 ```go
