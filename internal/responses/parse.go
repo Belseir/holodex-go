@@ -6,7 +6,7 @@ import (
 	"github.com/belseir/holodex-go/pkg/models"
 )
 
-func ParseResponse[T models.Channel | models.ChannelWithGroup | models.Video | models.VideoFull | models.VideoWithChannel |
+func Parse[T models.Channel | models.ChannelWithGroup | models.Video | models.VideoFull | models.VideoWithChannel |
 	[]models.Channel | []models.ChannelWithGroup | []models.Video | []models.VideoFull | []models.VideoWithChannel](res []byte) (*T, error) {
 	var response *T
 
