@@ -1,2 +1,63 @@
-# holodex-go
-A Golang wrapper for Holodex API
+# Holodex-Go
+
+<img align="right" alt="Holodex-Go logo" src="docs/img/holodexgo.png" width="200">
+
+Holodex-Go is a Go package that provides a client to use [Holodex](https://holodex.net/) V2 API.
+
+**DISCLAIMER:** This package was made for hobby to learn how to use golang and implement some design patterns. It's probably filled with bugs or lacking features. I may or may not continue updating it.
+
+If you want to contribute to the project or give some recommendations you're totally invited to do so through issues and pull requests.
+
+<br />
+<br />
+<br />
+
+## Getting Started
+
+### Installing
+
+Make sure to have a working [Go environment](https://go.dev/doc/install)
+
+```
+go get github.com/belseir/holodex-go
+```
+
+### Usage
+
+Import the client into your project.
+
+```go
+import (
+    holodex "github.com/belseir/holodex-go/pkg"
+)
+```
+
+Get an API key by creating an account on [Holodex](https://holodex.net/)
+
+Create a new Client using your API key
+**Note:** The HolodexClient uses a singleton pattern, the apiKey and cache will be used through all your clients inside the same project.
+
+```go
+client := holodex.NewHolodexClient("<YOUR_API_KEY>")
+```
+
+# Documentation
+
+- The Holodex API documentation can be found [here](https://docs.holodex.net/)
+- As for the package documentation, it can be found at `/docs/` (WIP)
+
+# Examples
+
+```go
+package main
+
+import (
+    holodex "github.com/belseir/holodex-go/pkg"
+)
+
+func main() {
+    client := holodex.NewHolodexClient("<API_KEY>")
+
+    //WIP
+}
+```
