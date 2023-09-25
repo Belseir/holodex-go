@@ -11,7 +11,7 @@ func newChannelSortBy() *channelSortBy {
 	return &channelSortBy{
 		ID:               "id",
 		NAME:             "name",
-		ENGLISH_NAME:     "englis_hname",
+		ENGLISH_NAME:     "english_name",
 		TYPE:             "type",
 		ORG:              "org",
 		SUBORG:           "suborg",
