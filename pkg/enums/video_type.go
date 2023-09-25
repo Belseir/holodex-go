@@ -18,9 +18,9 @@ type videoType struct {
 	CLIP   VideoType_Type
 }
 
-func (v *videoType) IsValid(t VideoType_Type) (bool, error) {
-	if t != VideoType.STREAM && t != VideoType.CLIP {
-		return false, fmt.Errorf("Invalid VideoType (%s) accessed. Expected 'stream' or 'clip'", t)
+func (_ *videoType) IsValid(vt VideoType_Type) (bool, error) {
+	if vt != VideoType.STREAM && vt != VideoType.CLIP {
+		return false, fmt.Errorf("Invalid VideoType (%s) accessed. Expected 'stream' or 'clip'", vt)
 	}
 
 	return true, nil

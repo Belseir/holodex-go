@@ -18,9 +18,9 @@ type channelType struct {
 	SUBBER ChannelType_Type
 }
 
-func (c *channelType) IsValid(t ChannelType_Type) (bool, error) {
-	if t != ChannelType.VTUBER && t != ChannelType.SUBBER {
-		return false, fmt.Errorf("Invalid ChannelType (%s) accessed. Expected 'vtuber' or 'subber'", t)
+func (_ *channelType) IsValid(ct ChannelType_Type) (bool, error) {
+	if ct != ChannelType.VTUBER && ct != ChannelType.SUBBER {
+		return false, fmt.Errorf("Invalid ChannelType (%s) accessed. Expected 'vtuber' or 'subber'", ct)
 	}
 
 	return true, nil

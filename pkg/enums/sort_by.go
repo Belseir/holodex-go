@@ -91,8 +91,8 @@ type videoSortBy struct {
 	SONGS           VideoSortBy_Type
 }
 
-func (c *channelSortBy) IsValid(s ChannelSortBy_Type) (bool, error) {
-	switch s {
+func (_ *channelSortBy) IsValid(cs ChannelSortBy_Type) (bool, error) {
+	switch cs {
 	case
 		ChannelSortBy.ID,
 		ChannelSortBy.NAME,
@@ -114,12 +114,12 @@ func (c *channelSortBy) IsValid(s ChannelSortBy_Type) (bool, error) {
 		ChannelSortBy.GROUP:
 		return true, nil
 	default:
-		return false, fmt.Errorf("Invalid ChannelSortBy (%s) accessed", s)
+		return false, fmt.Errorf("Invalid ChannelSortBy (%s) accessed", cs)
 	}
 }
 
-func (v *videoSortBy) IsValid(s VideoSortBy_Type) (bool, error) {
-	switch s {
+func (_ *videoSortBy) IsValid(vs VideoSortBy_Type) (bool, error) {
+	switch vs {
 	case
 		VideoSortBy.ID,
 		VideoSortBy.TITLE,
@@ -138,6 +138,6 @@ func (v *videoSortBy) IsValid(s VideoSortBy_Type) (bool, error) {
 		VideoSortBy.SONGS:
 		return true, nil
 	default:
-		return false, fmt.Errorf("Invalid VideoSortBy (%s) accessed", s)
+		return false, fmt.Errorf("Invalid VideoSortBy (%s) accessed", vs)
 	}
 }

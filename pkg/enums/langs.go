@@ -20,7 +20,7 @@ type langs struct {
 	CHINESE  LangsType
 }
 
-func (cs *langs) IsValid(l LangsType) (bool, error) {
+func (_ *langs) IsValid(l LangsType) (bool, error) {
 	if l != Langs.ENGLISH && l != Langs.JAPANESE && l != Langs.CHINESE {
 		return false, fmt.Errorf("Invalid Langs (%s) accessed. Expected 'en', 'jp' or 'zh'", l)
 	}

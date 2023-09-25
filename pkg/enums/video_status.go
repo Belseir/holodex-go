@@ -24,7 +24,7 @@ type videoStatus struct {
 	MISSING  VideoStatusType
 }
 
-func (v *videoStatus) IsValid(vs VideoStatusType) (bool, error) {
+func (_ *videoStatus) IsValid(vs VideoStatusType) (bool, error) {
 	switch vs {
 	case
 		VideoStatus.NEW,

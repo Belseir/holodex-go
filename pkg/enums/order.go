@@ -18,9 +18,9 @@ type order struct {
 	DESC OrderType
 }
 
-func (o *order) IsValid(ot OrderType) (bool, error) {
-	if ot != Order.ASC && ot != Order.DESC {
-		return false, fmt.Errorf("Invalid Order (%s) accessed. Expected 'asc' or 'desc'", ot)
+func (_ *order) IsValid(o OrderType) (bool, error) {
+	if o != Order.ASC && o != Order.DESC {
+		return false, fmt.Errorf("Invalid Order (%s) accessed. Expected 'asc' or 'desc'", o)
 	}
 
 	return true, nil
