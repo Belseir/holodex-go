@@ -1,6 +1,9 @@
 package models
 
 import (
+	"fmt"
+	"reflect"
+	"strings"
 	"time"
 
 	"github.com/belseir/holodex-go/pkg/enums"
@@ -42,4 +45,48 @@ type ChannelMinWithOrg struct {
 type ChannelWithGroup struct {
 	Channel
 	Group string `json:"group,omitempty"`
+}
+
+type ChannelQueryParams struct {
+	Type   enums.ChannelType_Type
+	Offset int
+	Limit  int
+	Org    string
+	Lang   enums.LangsType
+	Sort   enums.ChannelSortBy_Type
+	Order  enums.OrderType
+}
+
+func (c ChannelQueryParams) GetQueryString() string {
+	var sb strings.Builder
+
+	val := reflect.ValueOf(c)
+	typ := reflect.TypeOf(c)
+
+	for i := 0; i < val.NumField(); i++ {
+		field := typ.Field(i)
+		value := val.Field(i)
+
+		name := strings.ToLower(field.Name)
+
+		switch field.Type.Kind() {
+		case reflect.String:
+			if value.String() == "" {
+				continue
+			}
+
+			sb.WriteString(fmt.Sprintf("%s=%s&", name, value.String()))
+		case reflect.Int:
+			if value.Int() == 0 {
+				continue
+			}
+
+			sb.WriteString(fmt.Sprintf("%s=%d&", name, value.Int()))
+		}
+	}
+
+	if sb.Len() > 0 {
+		return "?" + sb.String()[:sb.Len()-1]
+	}
+	return ""
 }
