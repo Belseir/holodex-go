@@ -22,7 +22,7 @@ type Channel struct {
 	VideoCount      string                 `json:"video_count,omitempty"`
 	SubscriberCount string                 `json:"subscriber_count,omitempty"`
 	ViewCount       string                 `json:"view_count,omitempty"`
-	ClipCount       string                 `json:"clip_count,omitempty"`
+	ClipCount       int                 `json:"clip_count,omitempty"`
 	Lang            enums.LangsType        `json:"lang,omitempty"`
 	PublishedAt     time.Time              `json:"published_at"`
 	Inactive        bool                   `json:"inactive"`
