@@ -29,8 +29,6 @@ type channelQueryBuilder struct {
 	order  enums.OrderType
 }
 
-const MAX_LIMIT = 50
-
 func NewChannelQueryBuilder() *channelQueryBuilder {
 	return &channelQueryBuilder{}
 }
