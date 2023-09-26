@@ -50,12 +50,37 @@ client := holodex.NewHolodexClient("<YOUR_API_KEY>")
 package main
 
 import (
-    holodex "github.com/belseir/holodex-go/pkg"
+	"fmt"
+	"log"
+
+	holodex "github.com/belseir/holodex-go/pkg"
+	"github.com/belseir/holodex-go/pkg/builders"
+	"github.com/belseir/holodex-go/pkg/enums"
 )
 
 func main() {
     client := holodex.NewHolodexClient("<API_KEY>")
 
-    //WIP
+    query, err := builders.NewChannelQueryBuilder().
+		SetLang(enums.Langs.ENGLISH).
+		SetOrg("Hololive").
+		SetSort(enums.ChannelSortBy.SUBSCRIBER_COUNT).
+		SetOrder(enums.Order.DESC).
+		SetLimit(3).
+		Build()
+
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	channels, err := client.GetChannels(holodex.GetChannelsOptions{
+		Query: query,
+	})
+
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println(channels)
 }
 ```
