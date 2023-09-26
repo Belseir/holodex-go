@@ -42,13 +42,11 @@ type GetChannelsOptions struct {
 }
 
 func (c *HolodexClient) GetChannels(opts ...GetChannelsOptions) ([]models.Channel, error) {
-	var query string
+	query := "/channels"
 
 	if len(opts) > 0 && opts[0].Query != nil {
-		query = "/channels" + opts[0].Query.GetQueryString()
-	} else {
-		query = "/channels"
-	}
+		query += opts[0].Query.GetQueryString()
+	} 
 
 	cacheKey := utils.Hash(query)
 
