@@ -2,13 +2,10 @@ package responses
 
 import (
 	"encoding/json"
-
-	"github.com/belseir/holodex-go/pkg/models"
 )
 
-func Parse[T models.Channel | models.ChannelWithGroup | models.Video | models.VideoFull | models.VideoWithChannel |
-	[]models.Channel | []models.ChannelWithGroup | []models.Video | []models.VideoFull | []models.VideoWithChannel](res []byte) (*T, error) {
-	var response *T
+func Parse(res []byte) (interface{}, error) {
+	var response interface{}
 
 	err := json.Unmarshal(res, &response)
 
