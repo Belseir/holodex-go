@@ -2,9 +2,6 @@ package pkg
 
 import (
 	"sync"
-
-	"github.com/belseir/holodex-go/internal/requests"
-	"github.com/belseir/holodex-go/internal/responses"
 )
 
 type HolodexClient struct {
@@ -34,24 +31,4 @@ func (c *HolodexClient) searchInCache(hash string) interface{} {
 	}
 
 	return nil
-}
-
-func (c *HolodexClient) executeGetRequest(query string, cacheKey string) (interface{}, error) {
-	if cached := c.searchInCache(cacheKey); cached != nil {
-		return cached, nil
-	}
-
-	res, err := requests.Get(query, c.apiKey)
-	if err != nil {
-		return nil, err
-	}
-
-	parsed, err := responses.Parse(res)
-	if err != nil {
-		return nil, err
-	}
-
-	c.cache[cacheKey] = parsed
-
-	return parsed, nil
 }
