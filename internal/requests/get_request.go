@@ -24,8 +24,11 @@ func executeRequest(req *http.Request, apiKey string) ([]byte, error) {
 		return nil, err
 	}
 
-	if raw.StatusCode == 403 {
+	switch raw.StatusCode {
+	case 403:
 		return nil, fmt.Errorf("Invalid API key provided.")
+	case 404:
+		return nil, fmt.Errorf("Not found.")
 	}
 
 	response, err := io.ReadAll(raw.Body)
