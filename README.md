@@ -69,18 +69,18 @@ func main() {
 		SetLimit(3).
 		Build()
 
-	if err != nil {
-		log.Fatalln(err)
-	}
+    if err != nil {
+        log.Fatalln(err)
+    }
 
-	channels, err := client.GetChannels(holodex.GetChannelsOptions{
-		Query: query,
-	})
+    channels, err := client.GetChannels(holodex.GetChannelsOptions{
+        Query: query,
+    })
 
-	if err != nil {
-		log.Fatalln(err)
-	}
+    if err != nil {
+        log.Fatalln(err)
+    }
 
-	fmt.Println(channels)
+    fmt.Println(channels)
 }
 ```
