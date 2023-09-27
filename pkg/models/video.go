@@ -34,12 +34,14 @@ type VideoWithChannel struct {
 
 type VideoFull struct {
 	Video
-	Clips      []VideoWithChannel  `json:"clips,omitempty"`
-	Sources    []VideoWithChannel  `json:"sources,omitempty"`
-	Refers     []VideoWithChannel  `json:"refers,omitempty"`
-	Simulcasts []VideoWithChannel  `json:"simulcasts,omitempty"`
-	Mentions   []ChannelMinWithOrg `json:"mentions,omitempty"`
-	Songs      int                 `json:"songs,omitempty"`
+	Clips           []VideoWithChannel  `json:"clips,omitempty"`
+	Sources         []VideoWithChannel  `json:"sources,omitempty"`
+	Refers          []VideoWithChannel  `json:"refers,omitempty"`
+	Simulcasts      []VideoWithChannel  `json:"simulcasts,omitempty"`
+	Mentions        []ChannelMinWithOrg `json:"mentions,omitempty"`
+	Comments        []Comment           `json:"comments,omitempty"`
+	Recommendations []Video             `json:"recommendations,omitempty"`
+	Songs           []Song              `json:"songs,omitempty"`
 }
 
 type VideoQueryParams struct {
