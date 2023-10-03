@@ -1,4 +1,4 @@
-# Holodex-Go (WIP)
+# Holodex-Go
 
 <img align="right" alt="Holodex-Go logo" src="docs/img/holodexgo.png" width="200">
 
